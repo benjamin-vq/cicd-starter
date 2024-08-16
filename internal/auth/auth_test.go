@@ -27,8 +27,7 @@ func TestGetAPIKey(t *testing.T) {
 				t.Errorf("Incorrect return string, got %s want %s", auth, c.expectedString)
 			}
 
-			// Invert error condition to make CI fail
-			if c.shouldError && err != nil {
+			if c.shouldError && err == nil {
 				t.Errorf("Expected error for input headers %+v but no error was returned", c.headers)
 			}
 		})
